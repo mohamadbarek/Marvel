@@ -8,4 +8,7 @@
 import Foundation
 
 protocol NetworkService: AnyObject {
+    
+    // MARK: Get Marvel Characters
+    func getMarvelCharacters(offset: Int, limit: Int, completion: @escaping (Result<MarvelAPIResponse, ServiceError>) -> Void)
 }

@@ -33,6 +33,14 @@ final class AppCoordinator: BaseCoordinator {
 private extension AppCoordinator {
     func showMarvelListModule() {
         let marvelListViewController = moduleFactory.makeMarvelListModule(dependencies: dependencyProvider)
+        marvelListViewController.onMarvelItemTapped = { [weak self] marvelDetails in
+            self?.showMarvelDetailsScreen(marvelCharacter: marvelDetails)
+        }
         router.setRootModule(marvelListViewController, hideBar: false)
+    }
+
+    func showMarvelDetailsScreen(marvelCharacter: CharacterDetails) {
+        let marvelDetailsViewController = moduleFactory.makeMarvelDetailstModule(dependencies: dependencyProvider, marvelCharacter: marvelCharacter)
+        router.push(marvelDetailsViewController, animated: true, completion: nil)
     }
 }

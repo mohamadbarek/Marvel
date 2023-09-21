@@ -14,4 +14,10 @@ final class AppModuleFactory: AppModuleFactoryType {
         marvelListViewController.viewModel = MarvelListViewModel(dependencies: dependencies)
         return marvelListViewController
     }
+
+    func makeMarvelDetailstModule(dependencies: MarvelDetailsViewModel.Dependencies, marvelCharacter: CharacterDetails) -> MarvelDetailsViewController {
+        let marvelDetailsViewController = MarvelDetailsViewController.loadFromStoryboard()
+        marvelDetailsViewController.viewModel = MarvelDetailsViewModel(character: marvelCharacter, dependencies: dependencies)
+        return marvelDetailsViewController
+    }
 }
