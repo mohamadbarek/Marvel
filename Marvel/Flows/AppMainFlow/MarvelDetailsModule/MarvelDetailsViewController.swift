@@ -77,4 +77,8 @@ extension MarvelDetailsViewController: UITableViewDelegate {
         headerView.titleLabel.textColor = .appSecondaryColor
         return headerView
     }
+
+     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+         return 30
+     }
 }
